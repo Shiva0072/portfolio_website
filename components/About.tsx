@@ -1,9 +1,14 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { PageInfo } from "../typings";
+import { urlFor } from "../sanity";
+import colors from "../Assets/colors";
 
-type Props = {};
+type Props = {
+  about: PageInfo;
+};
 
-export default function About({}: Props) {
+export default function About({ about }: Props) {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -16,7 +21,7 @@ export default function About({}: Props) {
         About
       </h3>
       <motion.img
-        src="https://www.clipartmax.com/png/middle/308-3089392_medium-size-of-minion-coloring-images-pages-bob-free-despicable-me-colouring.png"
+        src={urlFor(about?.profilePic).url()}
         initial={{
           opacity: 0,
           x: -300,
@@ -41,12 +46,7 @@ export default function About({}: Props) {
           <span className="underline decoration-[#F7AB0A]/50">little</span>{" "}
           background
         </h4>
-        <p className="">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem
-          animi earum repudiandae obcaecati dignissimos dolorum, autem unde
-          incidunt doloremque aspernatur tempora, reprehenderit tenetur maxime
-          facilis quod! Commodi ex voluptatum id.
-        </p>
+        <p className="text-base">{about.backgroundInformation}</p>
       </div>
     </motion.div>
   );

@@ -38,33 +38,30 @@ const Home = ({ pageInfo, projects, skills, socials, experiences }: Props) => {
       </Head>
       <Header socials={socials} />
 
-      {/* Hero */}
       <section id="hero" className="snap-start">
-        <Hero />
+        <Hero pageInfo={pageInfo} />
       </section>
 
-      {/* About */}
       <section id="about" className="snap-center">
-        <About />
+        <About about={pageInfo} />
       </section>
 
-      {/* Experience */}
       <section id="experience" className="snap-center">
-        <WorkExperience />
+        <WorkExperience experiences={experiences} />
       </section>
 
-      {/* Skills */}
       <section id="skills" className="snap-start">
-        <Skills />
+        <Skills skills={skills} />
       </section>
-      {/* Projects */}
+
       <section id="projects" className="snap-start">
-        <Projects />
+        <Projects projects={projects} />
       </section>
-      {/* Contact Me */}
+
       <section id="contact" className="snap-start">
         <Contact />
       </section>
+
       <footer className="sticky bottom-5">
         <div className="w-20 flex justify-center ">
           <Link href="#hero">
@@ -102,6 +99,6 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     //next.js will attempt to regenerate the page:
     // -When a request comes in
     // -At most once in 100 seconds
-    revalidate: 100,
+    revalidate: 10,
   };
 };

@@ -1,11 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Project } from "../typings";
+import { urlFor } from "../sanity";
 
-type Props = {};
+type Props = {
+  projects: Project[];
+};
 
-export default function Projects({}: Props) {
-  const projects = [1, 3, 3, 45, 6];
-
+export default function Projects({ projects }: Props) {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -41,7 +43,7 @@ export default function Projects({}: Props) {
     scrollbar-track-gray-400/20 scrollbar-thumb-[#f7ab0a]/80
         "
       >
-        {projects.map((project, indx) => {
+        {projects?.map((project, indx) => {
           return (
             <div
               className="flex-shrink-0
@@ -63,14 +65,13 @@ export default function Projects({}: Props) {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1.2 }}
                 viewport={{ once: true }}
-                src="https://static-02.hindawi.com/articles/ace/volume-2020/9703560/figures/9703560.fig.009.jpg"
+                src={urlFor(project.image).url()}
               />
               <div
                 className="
                px-0
                md:px-10
                 max-w-6xl
-                bg-red-300
             "
               >
                 <h4 className="text-2xl font-semibold text-center">
@@ -80,14 +81,20 @@ export default function Projects({}: Props) {
                   >
                     {indx + 1} of {projects.length}:
                   </span>{" "}
-                  Helmet detection
+                  {project.title}
                 </h4>
-                <p className=" text-center md:text-left">
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Amet, distinctio adipisci assumenda quas voluptatum soluta
-                  ipsam alias doloremque quia sint quam perspiciatis iste,
-                  recusandae aspernatur odio expedita laborum accusantium. Cum!
-                </p>
+
+                <div className="flex items-center space-x-2 mb-4 mt-4 justify-center">
+                  {project.technologies.map((tech) => (
+                    <img
+                      className="h-10 w-12"
+                      key={tech._id}
+                      src={urlFor(tech.image).url()}
+                    />
+                  ))}
+                </div>
+
+                <p className=" text-center md:text-left">{project.summary}</p>
               </div>
             </div>
           );

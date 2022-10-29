@@ -3,12 +3,21 @@ import Link from "next/link";
 import { useTypewriter, Cursor } from "react-simple-typewriter";
 
 import BackgroundCircles from "./BackgroundCircles";
+import { PageInfo } from "../typings";
+import { urlFor } from "../sanity";
 
-type Props = {};
+type Props = {
+  pageInfo: PageInfo;
+};
 
-export default function Hero({}: Props) {
+export default function Hero({ pageInfo }: Props) {
   const [text, count] = useTypewriter({
-    words: ["Hi! This is Shivam", "<coDer/>", "Technophile", "foodie!"],
+    words: [
+      `Hi! This is ${pageInfo?.name}`,
+      "<coDer/>",
+      "Technophile",
+      "foodie!",
+    ],
     loop: true,
     delaySpeed: 1600,
   });
@@ -21,12 +30,12 @@ export default function Hero({}: Props) {
       <BackgroundCircles />
       <img
         className="relative rounded-full h-32 w-32 mx-auto object-cover"
-        src="https://www.codecademy.com/resources/blog/content/images/2021/10/What-is-collaborative-coding-.png"
+        src={urlFor(pageInfo?.heroImage).url()}
         alt=""
       />
       <div className="z-20">
         <h2 className="text-sm uppercase text-gray-500 pb-2 tracking-[15px]">
-          Software engineer
+          {pageInfo?.role}
         </h2>
         <h1 className="text-5xl lg:text-6xl font-semibold px-10">
           <span>{text}</span>

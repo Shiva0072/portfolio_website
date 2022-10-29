@@ -1,15 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Experience } from "../typings";
+import { urlFor } from "../sanity";
 
-type Props = {};
-/*
+type Props = {
+  experience: Experience;
+};
 
-space-y-7 flex-shrink-0  
-w-[500px] md:w-[600px] xl:w-[900px] snap-center
-bg-[#292929] p-10
-
-*/
-export default function ExperienceCards({}: Props) {
+export default function ExperienceCards({ experience }: Props) {
   return (
     <article
       className="flex flex-col 
@@ -24,43 +22,33 @@ export default function ExperienceCards({}: Props) {
         transition={{ duration: 1.5 }}
         viewport={{ once: true }}
         className="w-25 h-25 rounded-full xl:w-[100px] object-cover object-center"
-        src="https://play-lh.googleusercontent.com/Us16LmGy_PeXSn6f-OTVqC6Kxm52yMiSxeLJN-fcLp-DKNark8Tu4t5UIKlTgBc6Ijc"
+        src={urlFor(experience.companyImage).url()}
         alt=""
       />
-      <div className="px-0 md:px-10">
-        <h4 className="text-2xl font-light">React-Native Developer</h4>
-        <p className="font-bold text-1xl mt-1">Citymall.live</p>
+      <div className="px-0 md:px-10 overflow-auto scrollbar-thin scrollbar-thumb-[#f7ab0a]/40">
+        <h4 className="text-2xl font-light">{experience.jobTitle}</h4>
+        <p className="font-bold text-1xl mt-1">{experience.company}</p>
         <div className="flex space-x-2 my-2">
-          <img
-            className="w-10 h-10"
-            src="https://logosdownload.com/logo/javascript-logo-512.png"
-            alt=""
-          />
-          <img
-            className="w-10 h-10"
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png"
-            alt=""
-          />
-          <img
-            className="w-10 h-10"
-            src="https://camo.githubusercontent.com/edc736634dd35b0f4008e2f7db456136b9fc0e1e7a4078bb72c7352b1bdf8a7e/68747470733a2f2f776f726c64766563746f726c6f676f2e636f6d2f6c6f676f732f6373732d332e737667"
-            alt=""
-          />
-          <img
-            className="w-10 h-10"
-            src="https://logosdownload.com/logo/javascript-logo-512.png"
-            alt=""
-          />
-          {/* tech used */}
-          {/* tech used */}
+          {experience.technologies.map((tech) => {
+            return (
+              <img
+                className="w-18 h-12"
+                src={urlFor(tech.image).url()}
+                alt=""
+              />
+            );
+          })}
         </div>
         <p className="uppercase my-2 text-gray-300">
-          Started work... -Ended...
+          {new Date(experience.dateStarted).toDateString()}-{" "}
+          {experience.isCurrentlyWorkingHere
+            ? "Present"
+            : new Date(experience.dateEnded).toDateString()}
         </p>
         <ul className="list-disc ml-5  space-y-2 text-lg">
-          <li>Summary pointsSummary pointsSummary points</li>
-          <li>Summary pointsSummary pointsSummary points</li>
-          <li>Summary pointsSummary pointsSummary points</li>
+          {experience.points.map((point, i) => (
+            <li key={i}>{point}</li>
+          ))}
         </ul>
       </div>
     </article>
