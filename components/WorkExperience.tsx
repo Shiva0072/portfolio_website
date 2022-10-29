@@ -19,7 +19,10 @@ export default function WorkExperience({ experiences }: Props) {
        
     "
     >
-      <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl">
+      <h3
+        className="absolute top-24 uppercase 
+      tracking-[20px] text-gray-300 text-2xl"
+      >
         Experience
       </h3>
       <div
@@ -28,7 +31,7 @@ export default function WorkExperience({ experiences }: Props) {
         snap-x snap-mandatory
         scrollbar-thin
         h-[80%]
-    scrollbar-track-gray-400/20 scrollbar-thumb-[#f7ab0a]/80
+    scrollbar-track-gray-300 scrollbar-thumb-[#ef694e]/80
     
         "
       >

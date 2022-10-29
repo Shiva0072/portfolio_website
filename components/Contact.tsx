@@ -32,7 +32,7 @@ export default function Contact({}: Props) {
     >
       <h3
         className=" absolute tracking-widest uppercase
-        text-gray-500
+        text-gray-300
         top-24
         text-2xl
       "
@@ -47,10 +47,10 @@ export default function Contact({}: Props) {
                 text-center
             "
         >
-          I have got just what you need.{" "}
+          Looking forward to Opportunities.{" "}
           <span
             className="
-                decoration-[#F7AB0A]/50 
+                decoration-[#ef694e]/50 
                 underline
                 "
           >
@@ -64,7 +64,7 @@ export default function Contact({}: Props) {
           >
             <PhoneIcon
               className="h-7 w-7 
-                text-[#f7ab0a]
+                text-[#ef694e]
                 animate-pulse"
             />
             <p className="text-xl">+91 7784074165</p>
@@ -75,7 +75,7 @@ export default function Contact({}: Props) {
           >
             <EnvelopeIcon
               className="h-7 w-7 
-                text-[#f7ab0a]
+              text-[#ef694e]
                 animate-pulse"
             />
             <p className="text-xl">devshiva.iit.kgp@gmail.com</p>
@@ -86,7 +86,7 @@ export default function Contact({}: Props) {
           >
             <MapPinIcon
               className="h-7 w-7 
-                text-[#f7ab0a]
+              text-[#ef694e]
                 animate-pulse"
             />
             <p className="text-xl">Dwarka, Delhi</p>
@@ -127,8 +127,8 @@ export default function Contact({}: Props) {
           />
           <button
             type="submit"
-            className="font-bold bg-[#f7ab0a]/40
-          px-5 py-3 rounded-md text-black
+            className="font-bold bg-[#ef694e]/40
+          px-5 py-3 rounded-md text-gray-400
           "
           >
             Submit

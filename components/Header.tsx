@@ -33,41 +33,49 @@ function Header({ socials }: Props) {
             <SocialIcon
               key={item._id}
               url={item.url}
-              fgColor="gray"
+              fgColor="#ef694e"
               bgColor="transparent"
             />
           );
         })}
       </motion.div>
 
-      <Link href="#contact">
-        <motion.div
-          initial={{
-            x: 500,
-            opacity: 0,
-            scale: 0.5,
-          }}
-          animate={{
-            x: 0,
-            opacity: 1,
-            scale: 1,
-          }}
-          transition={{
-            duration: 1.5,
-          }}
-          className="flex flex-row items-center text-gray-300 cursor-pointer"
+      <motion.div
+        initial={{
+          x: 500,
+          opacity: 0,
+          scale: 0.5,
+        }}
+        animate={{
+          x: 0,
+          opacity: 1,
+          scale: 1,
+        }}
+        transition={{
+          duration: 1.5,
+        }}
+        className="flex flex-row items-center text-[#ef694e] cursor-pointer"
+      >
+        <Link href="#contact">
+          <div>
+            <SocialIcon
+              className="cursor-pointer"
+              network="email"
+              fgColor="#ef694e"
+              bgColor="transparent"
+            />
+            <p className="uppercase hidden md:inline-flex text-sm text-[#ef694e]">
+              Get In Touch
+            </p>
+          </div>
+        </Link>
+        <a
+          className="mx-3 mb-1"
+          href="https://drive.google.com/file/d/1qG32m7n8gTBMDnvtFxuSPqbMM2Hsu8Jg/view?usp=sharing"
         >
-          <SocialIcon
-            className="cursor-pointer"
-            network="email"
-            fgColor="gray"
-            bgColor="transparent"
-          />
-          <p className="uppercase hidden md:inline-flex text-sm text-gray-400">
-            Get In Touch
-          </p>
-        </motion.div>
-      </Link>
+          CV
+        </a>
+      </motion.div>
     </header>
   );
 }

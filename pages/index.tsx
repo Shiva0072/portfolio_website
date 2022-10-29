@@ -28,10 +28,16 @@ type Props = {
 const Home = ({ pageInfo, projects, skills, socials, experiences }: Props) => {
   return (
     <div
-      className="bg-[rgb(36,36,36)] text-white h-screen
-    snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0
-    scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#f7ab0a]/80
-    "
+      className="
+      bg-[#232323]
+       text-[#ef694e] h-screen 
+       snap-y snap-mandatory 
+       overflow-y-scroll 
+       overflow-x-hidden 
+       z-0 scrollbar-thin
+        scrollbar-track-[#232323]
+         scrollbar-thumb-[#ef694e]/100
+      "
     >
       <Head>
         <title>Shivam Portfolio</title>
@@ -67,7 +73,7 @@ const Home = ({ pageInfo, projects, skills, socials, experiences }: Props) => {
           <Link href="#hero">
             <HomeIcon
               className="h-7 w-7 cursor-pointer
-              text-gray-500 hover:text-[#f7ab0a]/40
+              text-gray-300 hover:text-[#ef694e]
               "
             />
           </Link>

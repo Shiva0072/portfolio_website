@@ -17,12 +17,12 @@ export default function Skills({ skills }: Props) {
       md:text-left xl:flex-row-y-0 xl:px-10 min-h-screen
       xl:flex-row max-w-[2000px] xl:space-y-0 mx-auto"
     >
-      <h3 className="top-24 text-2xl text-gray-500 absolute uppercase tracking-widest">
+      <h3 className="top-24 text-2xl text-gray-300 absolute uppercase tracking-widest">
         skills
       </h3>
 
-      <h3 className="absolute top-36 uppercase tracking-[3px] text-gray-500 text-sm">
-        Hover over a skill for currency proficiency
+      <h3 className="absolute top-36 uppercase tracking-[3px] text-[#ef694e] text-sm">
+        familiarity with technologies
       </h3>
 
       <div className="grid grid-cols-4 gap-5">

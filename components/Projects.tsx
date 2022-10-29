@@ -26,7 +26,7 @@ export default function Projects({ projects }: Props) {
         className="absolute
        top-24 uppercase 
        tracking-[20px]
-        text-gray-500 
+        text-gray-300 
         text-2xl"
       >
         Projects
@@ -40,7 +40,7 @@ export default function Projects({ projects }: Props) {
         snap-mandatory
         z-20
         scrollbar-thin
-    scrollbar-track-gray-400/20 scrollbar-thumb-[#f7ab0a]/80
+    scrollbar-track-gray-300 scrollbar-thumb-[#ef694e]
         "
       >
         {projects?.map((project, indx) => {
@@ -61,6 +61,7 @@ export default function Projects({ projects }: Props) {
             "
             >
               <motion.img
+                className="object-cover h-[100px] md:h-[200px] lg:h-[300px]"
                 initial={{ opacity: 0, y: -200 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1.2 }}
@@ -77,7 +78,7 @@ export default function Projects({ projects }: Props) {
                 <h4 className="text-2xl font-semibold text-center">
                   <span
                     className="underline 
-                  decoration-[#F7AB0A]/50 "
+                  decoration-[#ef694e]/50 "
                   >
                     {indx + 1} of {projects.length}:
                   </span>{" "}
@@ -85,16 +86,19 @@ export default function Projects({ projects }: Props) {
                 </h4>
 
                 <div className="flex items-center space-x-2 mb-4 mt-4 justify-center">
-                  {project.technologies.map((tech) => (
+                  {project?.technologies.map((tech) => (
                     <img
-                      className="h-10 w-12"
-                      key={tech._id}
-                      src={urlFor(tech.image).url()}
+                      className="h-10 w-12 md:h-15 md:w-18"
+                      key={tech?._id}
+                      src={urlFor(tech?.image).url()}
                     />
                   ))}
                 </div>
 
-                <p className=" text-center md:text-left">{project.summary}</p>
+                <p className=" text-center text-gray-300 md:text-left">
+                  {project.summary}
+                </p>
+                <a href={project.linkToBuild}>Link to Build</a>
               </div>
             </div>
           );
@@ -106,7 +110,7 @@ export default function Projects({ projects }: Props) {
         absolute
         left-0
       -skew-y-12 h-[300px] 
-      bg-[#F7AB0A]/10 
+      bg-[#ef694e]/10
       top-[30%]
       "
       ></div>
