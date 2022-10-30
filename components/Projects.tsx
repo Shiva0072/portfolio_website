@@ -46,6 +46,7 @@ export default function Projects({ projects }: Props) {
         {projects?.map((project, indx) => {
           return (
             <div
+              key={project._id}
               className="flex-shrink-0
                 space-x-5
                 p-20
@@ -96,9 +97,9 @@ export default function Projects({ projects }: Props) {
                 </div>
 
                 <p className=" text-center text-gray-300 md:text-left">
-                  {project.summary}
+                  {project?.summary}
                 </p>
-                <a href={project.linkToBuild}>Link to Build</a>
+                <a href={project?.linkToBuild}>Link to Build</a>
               </div>
             </div>
           );

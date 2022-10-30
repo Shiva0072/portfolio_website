@@ -8,26 +8,25 @@ type Inputs = {
   message: string;
   subject: string;
 };
-type Props = {};
 
-export default function Contact({}: Props) {
+export default function Contact() {
   const { register, handleSubmit } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = (formData) => {
-    window.location.href = `mailto:sidzs0077@gmail.com?subject=${formData.subject}&
+    window.location.href = `mailto:devshiva.iit.kgp@gmail.com?subject=${formData.subject}&
     body=hi,%20my%20name%20is%20${formData.name}.%20${formData.message}.%20(${formData.email})`;
   };
 
   return (
     <div
       className="h-screen 
-    relative
-    flex 
-    flex-col
-    md:flex-row
-    text-center
-    md:text-left 
-    max-w-7xl px-10 justify-evenly
-    mx-auto items-center
+        relative
+        flex 
+        flex-col
+        md:flex-row
+        text-center
+        md:text-left 
+        max-w-7xl px-10 justify-evenly
+        mx-auto items-center
     "
     >
       <h3
@@ -54,7 +53,7 @@ export default function Contact({}: Props) {
                 underline
                 "
           >
-            Let's Talk.
+            Let us Talk.
           </span>
         </h4>
         <div>
@@ -98,7 +97,7 @@ export default function Contact({}: Props) {
           className="flex flex-col 
             w-fit
             mx-auto
-        space-y-2"
+            space-y-2"
         >
           <div className="flex space-x-2">
             <input
@@ -128,7 +127,7 @@ export default function Contact({}: Props) {
           <button
             type="submit"
             className="font-bold bg-[#ef694e]/40
-          px-5 py-3 rounded-md text-gray-400
+                px-5 py-3 rounded-md text-gray-400
           "
           >
             Submit

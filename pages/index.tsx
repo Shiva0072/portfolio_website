@@ -1,4 +1,4 @@
-import type { GetStaticProps } from "next";
+import type { GetServerSideProps } from "next";
 import Head from "next/head";
 import { HomeIcon } from "@heroicons/react/24/solid";
 
@@ -40,7 +40,7 @@ const Home = ({ pageInfo, projects, skills, socials, experiences }: Props) => {
       "
     >
       <Head>
-        <title>Shivam Portfolio</title>
+        <title>{pageInfo?.name} Portfolio</title>
       </Head>
       <Header socials={socials} />
 
@@ -87,7 +87,7 @@ export default Home;
 /*
 snap works for child components after setting the snap for the parent components.
 */
-export const getStaticProps: GetStaticProps<Props> = async () => {
+export const getServerSideProps: GetServerSideProps<Props> = async () => {
   const pageInfo: PageInfo = await fetchPageInfo();
   const projects: Project[] = await fetchProjects();
   const skills: Skill[] = await fetchSkills();
@@ -105,6 +105,5 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     //next.js will attempt to regenerate the page:
     // -When a request comes in
     // -At most once in 100 seconds
-    revalidate: 10,
   };
 };
