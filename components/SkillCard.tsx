@@ -25,9 +25,9 @@ export default function SkillCard({ skill, directionLeft }: Props) {
         src={urlFor(skill?.image).url()}
         className="rounded-full border border-gray-500
         object-cover
-        md:w-18 md:h-18  
-        w-14 h-15
-        md:w-20 md:h-20
+        md:w-18 md:h-18 
+        w-14 h-16
+        md:w-16 md:h-19 
         filter group-hover:grayscale transition duration-200 ease-in-out
         "
       />
@@ -36,8 +36,6 @@ export default function SkillCard({ skill, directionLeft }: Props) {
          group-hover:opacity-80 
          group-hover:bg-white
         rounded-full  
-        md:w-18 md:h-18  
-        xl:w-20 xl:h-20
         justify-center items-center 
         flex h-full w-full
         transition duration-300 ease-in-out

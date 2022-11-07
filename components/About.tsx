@@ -45,7 +45,9 @@ export default function About({ about }: Props) {
           <span className="underline decoration-[#ef694e]/50">little</span>{" "}
           background
         </h4>
-        <p className="text-base md:text-lg ">{about.backgroundInformation}</p>
+        <p className="text-base md:text-lg text-justify">
+          {about.backgroundInformation}
+        </p>
       </div>
     </motion.div>
   );
