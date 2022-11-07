@@ -96,7 +96,7 @@ export default function Projects({ projects }: Props) {
                   ))}
                 </div>
 
-                <p className=" text-center text-gray-300 md:text-left">
+                <p className=" text-gray-300 md:text-left text-justify">
                   {project?.summary}
                 </p>
                 <a href={project?.linkToBuild}>Link to Build</a>
